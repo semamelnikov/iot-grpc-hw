@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package sqrt;
+
+option java_package = "ru.kpfu.itis.grpc.sqrt";
+option java_multiple_files = true;
+
+message Number {
+    int32 value = 1;
+};
+
+message SqrtCalculationRequest {
+    Number number = 1;
+};
+
+message SqrtCalculationResponse {
+    double result = 1;
+};
+
+service SqrtCalculationService {
+    rpc getSqrtOfNumber(SqrtCalculationRequest) returns (SqrtCalculationResponse) {};
+};

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package factorization;
+
+option java_package = "ru.kpfu.itis.grpc.factorization";
+option java_multiple_files = true;
+
+message Number {
+    int32 value = 1;
+};
+
+message FactorizationRequest {
+    Number number = 1;
+};
+
+message FactorizationResponse {
+    Number result = 1;
+};
+
+service FactorizationService {
+    rpc getFactorizationOfNumber(FactorizationRequest) returns (stream FactorizationResponse) {};
+};

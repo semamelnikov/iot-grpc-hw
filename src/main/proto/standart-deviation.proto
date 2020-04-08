@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package std;
+
+option java_package = "ru.kpfu.itis.grpc.std";
+option java_multiple_files = true;
+
+message Number {
+    int32 value = 1;
+};
+
+message StdCalculationRequest {
+    Number number = 1;
+};
+
+message StdCalculationResponse {
+    double result = 1;
+};
+
+service StdCalculationService {
+    rpc getStandardDeviation(stream StdCalculationRequest) returns (StdCalculationResponse) {};
+};
+

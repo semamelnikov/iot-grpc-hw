@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package max;
+
+option java_package = "ru.kpfu.itis.grpc.max";
+option java_multiple_files = true;
+
+message Number {
+    int32 value = 1;
+};
+
+message MaxCalculationRequest {
+    Number number = 1;
+};
+
+message MaxCalculationResponse {
+    Number result = 1;
+};
+
+service MaxCalculationService {
+    rpc getMax(stream MaxCalculationRequest) returns (stream MaxCalculationResponse) {};
+};
+
